@@ -13,7 +13,6 @@ add_executable(game1 main.cpp
         classes/RandomRange.h
         classes/Config.h
         classes/Game.h
-        classes/Vector.h
         classes/Player.h
         classes/Enemy.h
         classes/Bullet.h

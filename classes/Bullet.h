@@ -24,6 +24,7 @@ struct BulletFactory{
         b->shape = new CircleShape(config->bulletRadius,config->bulletVertices);
         b->shape->setFillColor(Color(config->bulletR,config->bulletG,config->bulletB));
         b->shape->setPosition(player->shape->getPosition().x,player->shape->getPosition().y);
+        b->shape->setOrigin(config->bulletRadius,config->bulletRadius);
         return b;
     }
 

@@ -7,8 +7,9 @@
 using namespace sf;
 
 struct Entity{
+    float angle=0;
     V2* position;
-    int speed;
+    float speed;
     CircleShape* shape;
 
     void draw(sf::RenderWindow* window){

@@ -31,6 +31,17 @@ struct V2 {
         return sqrt((x-v.x)*(x-v.x)+(y-v.y)*(y-v.y));
     }
 
+    V2 normalize(){
+        float invers = 1/len();
+        float x1 = x*invers;
+        float y1 = y*invers;
+        return V2(x1,y1);
+    }
+
+    float len(){
+        return sqrt(x*x+y*y);
+    }
+
     void operator += (V2 right)
     {
         x += right.x;

@@ -30,6 +30,7 @@ struct EnemyFactory{
         int x = random.get(0+config->enemyRadius,config->screenWidth-config->playerRadius);
         int y = random.get(0+config->enemyRadius,config->screenHeight-config->playerRadius);
         e->shape->setPosition(x,y);
+        e->shape->setOrigin(config->enemyRadius,config->enemyRadius);
         return e;
     }
 

@@ -2,18 +2,18 @@
 
 #include <cmath>
 
-struct Vector {
+struct V2 {
     float x;
     float y;
 
-    Vector():x(0),y(0){}
-    Vector(int x,int y):x(x),y(y){}
+    V2():x(0),y(0){}
+    V2(int x,int y):x(x),y(y){}
 
-    bool operator == (Vector& v){
+    bool operator == (V2& v){
         return x == v.x and y == v.y;
     }
 
-    bool operator != (Vector& v){
+    bool operator != (V2& v){
         return x != v.x or y != v.y;
     }
 
@@ -27,11 +27,11 @@ struct Vector {
         y/=a;
     }
 
-    float dist(Vector& v){
+    float dist(V2& v){
         return sqrt((x-v.x)*(x-v.x)+(y-v.y)*(y-v.y));
     }
 
-    void operator += (Vector right)
+    void operator += (V2 right)
     {
         x += right.x;
         y += right.y;

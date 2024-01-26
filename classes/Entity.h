@@ -7,13 +7,9 @@
 using namespace sf;
 
 struct Entity{
-    Vector* position;
+    V2* position;
     int speed;
     CircleShape* shape;
-
-    void update(){
-
-    }
 
     void draw(sf::RenderWindow* window){
         window->draw(*shape);

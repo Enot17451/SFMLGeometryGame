@@ -13,7 +13,6 @@ struct Game {
     vector<Enemy*> enemies;
     vector<Bullet*> bullets;
     Player* player;
-    Config* config;
     EnemyFactory* ef;
     BulletFactory* bf;
     RenderWindow* window;
@@ -21,13 +20,12 @@ struct Game {
     bool paused = false;
     int score = 0;
 
-    Game(Config c){
-        config = &c;
+    Game(Config* c){
         window = new RenderWindow();
-        if(c.fullScreen){
-            window->create(sf::VideoMode(c.screenWidth, c.screenHeight), "Game",sf::Style::Fullscreen);
+        if(c->fullScreen){
+            window->create(VideoMode(c->screenWidth, c->screenHeight), "Game",Style::Fullscreen);
         } else{
-            window->create(sf::VideoMode(c.screenWidth, c.screenHeight), "Game",sf::Style::Default);
+            window->create(VideoMode(c->screenWidth, c->screenHeight), "Game",Style::Default);
         }
         player = new Player(c);
         ef = new EnemyFactory(c);

@@ -3,16 +3,20 @@
 #include "classes/Config.h"
 #include "classes/Game.h"
 
+using namespace std;
+
+
 int main()
 {
-    Config config("../config.ini");
+    Config* config = new Config("../config.ini");
     Game game(config);
+
     while (game.window->isOpen())
     {
-        sf::Event event;
+        Event event;
         while (game.window->pollEvent(event))
         {
-            if (event.type == sf::Event::Closed)
+            if (event.type == Event::Closed)
                 game.window->close();
         }
         game.update();

@@ -5,7 +5,6 @@
 
 using namespace std;
 
-
 int main()
 {
     Config* config = new Config("../config.ini");

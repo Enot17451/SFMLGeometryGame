@@ -17,6 +17,7 @@ add_executable(game1 main.cpp
         classes/Enemy.h
         classes/Bullet.h
         classes/Entity.h
+        classes/MyText.h
 )
 
 target_link_libraries(game1 sfml-system sfml-window sfml-graphics)

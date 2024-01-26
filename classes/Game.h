@@ -5,6 +5,7 @@
 #include "Player.h"
 #include "Enemy.h"
 #include "Bullet.h"
+#include "MyText.h"
 
 using namespace sf;
 using namespace std;
@@ -16,12 +17,14 @@ struct Game {
     EnemyFactory* ef;
     BulletFactory* bf;
     RenderWindow* window;
-    Text text;
+    MyText* text = new MyText("Hello");
     bool paused = false;
     int score = 0;
 
     Game(Config* c){
         window = new RenderWindow();
+        window->setFramerateLimit(30);
+
         if(c->fullScreen){
             window->create(VideoMode(c->screenWidth, c->screenHeight), "Game",Style::Fullscreen);
         } else{
@@ -43,6 +46,7 @@ struct Game {
     }
 
     void draw(){
+        text->draw(window);
         player->draw(window);
         for (Enemy* e:enemies) {
             e->draw(window);

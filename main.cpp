@@ -1,4 +1,5 @@
-
+#pragma once
+#include <iostream>
 #include <SFML/Graphics.hpp>
 #include "classes/Config.h"
 #include "classes/Game.h"
@@ -9,10 +10,9 @@ int main()
 {
     Config* config = new Config("../config.ini");
     Game game(config);
-
     while (game.window->isOpen())
     {
-        Event event;
+        Event event{};
         while (game.window->pollEvent(event))
         {
             if (event.type == Event::Closed)

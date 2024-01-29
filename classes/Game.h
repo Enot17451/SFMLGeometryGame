@@ -13,6 +13,7 @@ using namespace std;
 struct Game {
     vector<Enemy*> enemies;
     vector<Bullet*> bullets;
+    Clock clock;
     Player* player;
     EnemyFactory* ef;
     BulletFactory* bf;
@@ -23,7 +24,7 @@ struct Game {
 
     Game(Config* c){
         window = new RenderWindow();
-        window->setFramerateLimit(30);
+        window->setVerticalSyncEnabled(true);
 
         if(c->fullScreen){
             window->create(VideoMode(c->screenWidth, c->screenHeight), "Game",Style::Fullscreen);
@@ -36,6 +37,7 @@ struct Game {
     };
 
     void update(){
+        clock.restart();
         player->update();
         for (Enemy* e:enemies) {
             e->update();
@@ -43,6 +45,9 @@ struct Game {
         for (Bullet* b:bullets) {
             b->update();
         }
+        unsigned long a = clock.getElapsedTime().asMicroseconds();
+        cout << a << "\n";
+        sleep(microseconds(16666-a));
     }
 
     void draw(){
